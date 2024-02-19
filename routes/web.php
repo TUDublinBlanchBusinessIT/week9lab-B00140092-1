@@ -26,3 +26,9 @@ Route::get('/customers/edit/{id}', 'App\Http\Controllers\CustomerController@edit
 Route::post('/customers/update', 'App\Http\Controllers\CustomerController@update');
 
 Route::resource('members', App\Http\Controllers\memberController::class);
+
+
+Route::resource('courts', App\Http\Controllers\courtController::class);
+
+
+Route::resource('bookings', App\Http\Controllers\bookingController::class);
