@@ -60,5 +60,12 @@ class member extends Model
         'dateofbirth' => 'nullable'
     ];
 
+    public function __tostring()
+    {
+        return $this->firstname." ".
+            $this->surname;
+    }
     
 }
+
+
