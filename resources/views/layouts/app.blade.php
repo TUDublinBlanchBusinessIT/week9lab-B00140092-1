@@ -14,8 +14,12 @@
             <ul class="nav navbar-nav"> 
                 <li><a href="{{ route ('members.index') }}">Member List</a></li> 
                 <li><a href="{{ route ('members.create') }}">New Member</a></li>
-                <li><a href="{{ route ('bookings.index') }}">Booking List</a></li> 
+                <li><a href="{{ route ('bookings.index') }}">Booking List</a></li>
+                <li><a href="{{ route('register') }}">Register</a></li> 
+                <li><a href="{{ route('logoff') }}">Logoff</a></li>
+                <li><a href="{{ route('login') }}">Login</a></li> 
             </ul> 
+            @include('layouts.navAuth')
         </nav> 
         <div id="page-content-wrapper"> 
             <div class="container-fluid"> 
