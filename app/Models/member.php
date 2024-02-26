@@ -66,6 +66,10 @@ class member extends Model
             $this->surname;
     }
     
+    public function user()
+    {
+    return $this->belongsTo(\App\User::class,'userid','id');
+    }
 }
 
 
