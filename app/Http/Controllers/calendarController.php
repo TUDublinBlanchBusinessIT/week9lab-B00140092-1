@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use \App\Models\Event as Event;
 use Illuminate\Http\Request;
 class CalendarController extends Controller
 {
@@ -7,5 +8,18 @@ class CalendarController extends Controller
     {
         return view('calendar.display');
     }
+
+
+    public function json()
+    {
+        //$this->view->disable();
+        $content = Event::all()->toJson();
+        //$content=$json_encode($events);
+        return response($content)->withHeaders([
+                'Content-Type' => 'application/json',
+                'charset' => 'UTF-8'
+            ]);
+    }
+
 }
 ?>

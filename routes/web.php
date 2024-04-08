@@ -30,13 +30,9 @@ Route::get('/loggedInMember','App\Http\Controllers\memberController@getLoggedInM
 Route::resource('bookings', App\Http\Controllers\bookingController::class);
 Route::resource('members', App\Http\Controllers\memberController::class);
 Route::get('/customers/new', 'App\Http\Controllers\CustomerController@new');
-<<<<<<< HEAD
 Route::post('/customers/create', 'App\Http\Controllers\CustomerController@create')->name('customers.create'); 
 
 Route::get('/calendar/display', 'App\Http\Controllers\CalendarController@display');
-
+Route::get('/calendar/json','App\Http\Controllers\CalendarController@json')->name('calendar.json');
 
 ?>
-=======
-Route::post('/customers/create', 'App\Http\Controllers\CustomerController@create')->name('customers.create'); 
->>>>>>> 5aa4b6c37c8f604b5866b3eb057c8a9c4534e4a2
