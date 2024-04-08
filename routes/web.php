@@ -39,9 +39,12 @@ Route::post('/customers/update', 'App\Http\Controllers\CustomerController@update
 Route::resource('members', App\Http\Controllers\memberController::class);
 
 
+
 Route::resource('courts', App\Http\Controllers\courtController::class);
 
 
 Route::resource('bookings', App\Http\Controllers\bookingController::class);
 
 Route::get('/loggedInMember','App\Http\Controllers\memberController@getLoggedInMemberDetails');
+
+Route::resource('/calendar/display', App\Http\Controllers\calendarController);
