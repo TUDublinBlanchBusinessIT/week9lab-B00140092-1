@@ -36,6 +36,22 @@ class memberController extends AppBaseController
             ->with('members', $members);
     }
 
+    public function getLoggedInMemberDetails()
+    {
+
+    if (!Auth::guest()){
+        $user = Auth::user();
+        echo "Userid is " . $user->id;    
+        echo "Member id is " . $user->member->id;
+        echo "The member's name is " . $user->member->firstname . " ";
+        echo $user->member->surname;
+        echo "The member is a " . $user->member->membertype;
+    }
+    else {
+        echo "not logged in ";
+    }
+    }
+
     /**
      * Show the form for creating a new member.
      *
@@ -154,20 +170,4 @@ class memberController extends AppBaseController
 
         return redirect(route('members.index'));
     }
-
-    public function getLoggedInMemberDetails()
-    {
-
-        if (!Auth::guest()){
-            $user = Auth::user();
-            echo "Userid is " . $user->id;    
-            echo "Member id is " . $user->member->id;
-            echo "The member's name is " . $user->member->firstname . " ";
-            echo $user->member->surname;
-            echo "The member is a " . $user->member->membertype;
-        }
-        else {
-            echo "not logged in ";
-    }
-}
 }

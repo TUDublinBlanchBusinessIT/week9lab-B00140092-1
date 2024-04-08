@@ -10,11 +10,16 @@ class CustomerController extends Controller
         return view('customers.new'); 
     } 
 
-    public function edit($id)
+    public function create(Request $request)      
     {
-         $customer = Customer::find($id);
-         return view('customers.edit')->with('customer', $customer);
-    }
+    //instantiate a new Customer object from the Model class
+    $customer = new Customer();
+    //call setter on the object passing values from the View
+    $customer->setFirstname($request->firstname);
+    $customer->setSurname($request->surname);
+    //save the object which will create a new customer in the DB
+    $customer->save();        
+    }  
 
     public function update(Request $request)
     {
@@ -24,7 +29,10 @@ class CustomerController extends Controller
         $customer->save();
     }
 
-
-   
+    public function edit($id)
+    {
+         $customer = Customer::find($id);
+         return view('customers.edit')->with('customer', $customer);
+    }
 } 
-?>
+?> 

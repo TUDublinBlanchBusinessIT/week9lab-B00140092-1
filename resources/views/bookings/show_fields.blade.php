@@ -1,36 +1,24 @@
-<!-- Bookingdate Field -->
+<!-- Firstname Field -->
 <div class="col-sm-12">
-    {!! Form::label('bookingdate', 'Bookingdate:') !!}
-    <p>{{ $booking->bookingdate }}</p>
+    {!! Form::label('firstname', 'Firstname:') !!}
+    <p>{{ $booking->firstname }}</p>
 </div>
 
-<!-- Starttime Field -->
+<!-- Surname Field -->
 <div class="col-sm-12">
-    {!! Form::label('starttime', 'Starttime:') !!}
-    <p>{{ $booking->starttime }}</p>
+    {!! Form::label('surname', 'Surname:') !!}
+    <p>{{ $booking->surname }}</p>
 </div>
 
-<!-- Endtime Field -->
+<!-- Membertype Field -->
 <div class="col-sm-12">
-    {!! Form::label('endtime', 'Endtime:') !!}
-    <p>{{ $booking->endtime }}</p>
+    {!! Form::label('membertype', 'Membertype:') !!}
+    <p>{{ $booking->membertype }}</p>
 </div>
 
-<!-- Memberid Field -->
+<!-- Dateofbirth Field -->
 <div class="col-sm-12">
-    {!! Form::label('memberid', 'Memberid:') !!}
-    <p>{{ $booking->memberid }}</p>
-</div>
-
-<!-- Courtid Field -->
-<div class="col-sm-12">
-    {!! Form::label('courtid', 'Courtid:') !!}
-    <p>{{ $booking->courtid }}</p>
-</div>
-
-<!-- Fee Field -->
-<div class="col-sm-12">
-    {!! Form::label('fee', 'Fee:') !!}
-    <p>{{ $booking->fee }}</p>
+    {!! Form::label('dateofbirth', 'Dateofbirth:') !!}
+    <p>{{ $booking->dateofbirth }}</p>
 </div>
 

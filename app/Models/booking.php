@@ -9,20 +9,19 @@ use Illuminate\Database\Eloquent\Model as Model;
 /**
  * Class booking
  * @package App\Models
- * @version February 19, 2024, 3:22 pm UTC
+ * @version February 19, 2024, 3:24 pm UTC
  *
- * @property string $bookingdate
- * @property time $starttime
- * @property time $endtime
- * @property integer $memberid
- * @property integer $courtid
- * @property number $fee
+ * @property \Illuminate\Database\Eloquent\Collection $bookings
+ * @property string $firstname
+ * @property string $surname
+ * @property string $membertype
+ * @property string $dateofbirth
  */
 class booking extends Model
 {
 
 
-    public $table = 'booking';
+    public $table = 'member';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -31,12 +30,10 @@ class booking extends Model
 
 
     public $fillable = [
-        'bookingdate',
-        'starttime',
-        'endtime',
-        'memberid',
-        'courtid',
-        'fee'
+        'firstname',
+        'surname',
+        'membertype',
+        'dateofbirth'
     ];
 
     /**
@@ -46,10 +43,10 @@ class booking extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'bookingdate' => 'date',
-        'memberid' => 'integer',
-        'courtid' => 'integer',
-        'fee' => 'decimal:3'
+        'firstname' => 'string',
+        'surname' => 'string',
+        'membertype' => 'string',
+        'dateofbirth' => 'date'
     ];
 
     /**
@@ -58,13 +55,17 @@ class booking extends Model
      * @var array
      */
     public static $rules = [
-        'bookingdate' => 'nullable',
-        'starttime' => 'nullable',
-        'endtime' => 'nullable',
-        'memberid' => 'nullable|integer',
-        'courtid' => 'nullable|integer',
-        'fee' => 'nullable|numeric'
+        'firstname' => 'nullable|string|max:30',
+        'surname' => 'nullable|string|max:30',
+        'membertype' => 'nullable|string|max:6',
+        'dateofbirth' => 'nullable'
     ];
 
-    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function bookings()
+    {
+        return $this->hasMany(\App\Models\Booking::class, 'memberid');
+    }
 }

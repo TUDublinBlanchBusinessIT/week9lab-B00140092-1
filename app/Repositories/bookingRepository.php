@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class bookingRepository
  * @package App\Repositories
- * @version February 19, 2024, 3:22 pm UTC
+ * @version February 19, 2024, 3:24 pm UTC
 */
 
 class bookingRepository extends BaseRepository
@@ -17,12 +17,10 @@ class bookingRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'bookingdate',
-        'starttime',
-        'endtime',
-        'memberid',
-        'courtid',
-        'fee'
+        'firstname',
+        'surname',
+        'membertype',
+        'dateofbirth'
     ];
 
     /**

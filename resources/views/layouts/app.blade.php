@@ -12,9 +12,8 @@
     <body > 
         <nav class="navbar navbar-default navbar-static-top"> 
             <ul class="nav navbar-nav"> 
-                <li><a href="{{ route ('members.index') }}">Member List</a></li> 
-                <li><a href="{{ route ('members.create') }}">New Member</a></li>
-                <li><a href="{{ route ('bookings.index') }}">Booking List</a></li>
+                <li><a href="https://laravel.com/docs">Laravel Documentation</a></li> 
+                <li><a href="https://laracasts.com/">Laravel Video Tutorials</a></li> 
             </ul> 
             @include('layouts.navAuth')
         </nav> 
@@ -22,8 +21,7 @@
             <div class="container-fluid"> 
                 <div class="row"> 
                     <div class="col-lg-2"></div> 
-                    <div class="col-lg-8"> 
-                        @yield('content') </div> 
+                    <div class="col-lg-8"> @yield('content') </div> 
                     <div class="col-lg-2"></div> 
                 </div> 
             </div> 

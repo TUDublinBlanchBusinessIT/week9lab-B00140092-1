@@ -2,24 +2,20 @@
     <table class="table" id="bookings-table">
         <thead>
         <tr>
-            <th>Bookingdate</th>
-        <th>Starttime</th>
-        <th>Endtime</th>
-        <th>Memberid</th>
-        <th>Courtid</th>
-        <th>Fee</th>
+            <th>Firstname</th>
+        <th>Surname</th>
+        <th>Membertype</th>
+        <th>Dateofbirth</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
         @foreach($bookings as $booking)
             <tr>
-                <td>{{ $booking->bookingdate }}</td>
-            <td>{{ $booking->starttime }}</td>
-            <td>{{ $booking->endtime }}</td>
-            <td>{{ $booking->memberid }}</td>
-            <td>{{ $booking->courtid }}</td>
-            <td>{{ $booking->fee }}</td>
+                <td>{{ $booking->firstname }}</td>
+            <td>{{ $booking->surname }}</td>
+            <td>{{ $booking->membertype }}</td>
+            <td>{{ $booking->dateofbirth }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['bookings.destroy', $booking->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

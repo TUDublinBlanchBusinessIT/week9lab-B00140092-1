@@ -42,16 +42,15 @@ class bookingController extends AppBaseController
      *
      * @return Response
      */
-
     public function create()
-        {
-            //Find all members from the DB and return as an array of Member.php objects
-            $members = Member::all();
-            //Find all courts from the DB and return as an array of Court.php objects
-            $courts = Court::all();
-            //return the bookings.create view with $members and $courts as view variables
-            return view('bookings.create')->with('members',$members)->with('courts',$courts);
-        }
+    {
+        //Find all members from the DB and return as an array of Member.php objects
+        $members = Member::all();
+        //Find all courts from the DB and return as an array of Court.php objects
+        $courts = Court::all();
+        //return the bookings.create view with $members and $courts as view variables
+        return view('bookings.create')->with('members',$members)->with('courts',$courts);
+   }
 
     /**
      * Store a newly created booking in storage.

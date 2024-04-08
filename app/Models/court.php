@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Model as Model;
 /**
  * Class court
  * @package App\Models
- * @version February 19, 2024, 3:22 pm UTC
+ * @version February 19, 2024, 2:43 pm UTC
  *
+ * @property \Illuminate\Database\Eloquent\Collection $bookings
  * @property string $surface
  * @property boolean $floodlights
  * @property boolean $indoor
@@ -56,11 +57,16 @@ class court extends Model
         'indoor' => 'nullable|boolean'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function bookings()
+    {
+        return $this->hasMany(\App\Models\Booking::class, 'courtid');
+    }
+
     public function __toString()
     {
-        return $this->floodlights. " ".
-            $this->surface;
+        return $this->firstname. " ". $this->surface;
     }
-    
-
 }

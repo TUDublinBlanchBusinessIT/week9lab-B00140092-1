@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Model as Model;
 /**
  * Class member
  * @package App\Models
- * @version January 29, 2024, 4:16 pm UTC
+ * @version January 29, 2024, 4:07 pm UTC
  *
+ * @property \Illuminate\Database\Eloquent\Collection $bookings
  * @property string $firstname
  * @property string $surname
  * @property string $membertype
@@ -60,16 +61,21 @@ class member extends Model
         'dateofbirth' => 'nullable'
     ];
 
-    public function __tostring()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function bookings()
     {
-        return $this->firstname." ".
-            $this->surname;
+        return $this->hasMany(\App\Models\Booking::class, 'memberid');
     }
-    
+
+    public function __toString()
+    {
+        return $this->firstname. " ". $this->surname;
+    }
+
     public function user()
     {
-    return $this->belongsTo(\App\User::class,'userid','id');
+        return $this->belongsTo(\App\User::class,'userid','id');
     }
 }
-
-
